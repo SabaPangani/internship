@@ -1,0 +1,19 @@
+<div class="w-1/2 mx-auto">
+    <div class="flex justify-between py-3 px-16 bg-white rounded-md">
+        <span class="font-medium text-center w-full">სრული სახელი</span>
+        <span class="font-medium text-center w-full">ტელეფონის ნომერი</span>
+        <span class="font-medium text-center w-full">მეილი</span>
+        <span class="font-medium text-center w-full">კომპანიის სახელი</span>
+    </div>
+    <ul class="w-full max-w-full flex flex-col gap-y-5 mt-5 bg-white pt-5 rounded-md">
+        <li class="w-full max-w-full flex justify-between border-b px-10 pb-4 border-b-violet-100 relative"
+            *ngFor="let user of users">
+            <span class="px-5 text-center w-full">{{user.name}}</span>
+            <span class="px-5 text-center w-full">{{user.phone}}</span>
+            <span class="px-5 text-center w-full">{{user.email}}</span>
+            <span class="px-5 text-center w-full">{{user.company.name}}</span>
+            <a class="rounded-md bg-purple text-white py-2 px-3 hover:bg-purple-hover transition-all cursor-pointer"
+                [routerLink]="['/posts', user.id]">პოსტები</a>
+        </li>
+    </ul>
+</div>
