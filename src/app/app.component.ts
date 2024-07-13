@@ -9,7 +9,6 @@ import { NavigationComponent } from "./components/navigation/navigation.componen
   standalone: true,
   imports: [HeaderComponent, FooterComponent, RouterOutlet, NavigationComponent],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css'
 })
 export class AppComponent {
   title = 'my-app';
