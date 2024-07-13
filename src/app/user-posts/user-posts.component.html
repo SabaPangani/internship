@@ -1,5 +1,5 @@
-<ul class="w-1/2 mx-auto flex flex-wrap justify-between gap-y-5">
-    <li class="bg-white w-[calc(33.3333%-20px)] text-dark py-5 px-5 flex flex-col gap-y-10 rounded-md shadow-purple shadow-sm cursor-pointer scale-100 hover:scale-105 transition-all"
+<ul class="w-1/2 mx-auto flex flex-wrap justify-between gap-y-5 md:w-[80%]">
+    <li class="bg-white lg:w-full w-[calc(33.3333%-20px)] text-dark py-5 px-5 flex flex-col gap-y-10 rounded-md shadow-purple shadow-sm cursor-pointer scale-100 hover:scale-105 transition-all"
         *ngFor="let post of userPosts">
         <h1 class="font-bold">{{post.title}}</h1>
         <p class="font-medium text-gray">{{post.body}}</p>

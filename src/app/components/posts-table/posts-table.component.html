@@ -1,23 +1,19 @@
-<div class="w-1/2 mx-auto">
-    <div class="flex justify-between py-3 px-16 bg-white rounded-md">
+<div class="w-1/2 mx-auto md:w-[80%]">
+    <div class="flex justify-between py-3 px-16 bg-white rounded-md xl:hidden">
         <span class="font-medium text-center w-full">სათაური</span>
         <span class="font-medium text-center w-full">მომხმარებლის სახელი</span>
     </div>
     <ul class="w-full flex flex-col gap-y-5 bg-white mt-5 rounded-md pt-5">
-        <li class="w-full flex justify-between border-b px-10 pb-4 border-b-violet-100 relative"
+        <li class="w-full flex justify-between border-b px-10 pb-4 border-b-violet-100 relative xl:flex-col xl:gap-y-5 sm:text-center sm:px-5"
             *ngFor="let post of posts">
+            <span class="hidden xl:block text-center">სათაური:</span>
             <span class="px-5 text-center w-full">{{post.title}}</span>
+            <span class="hidden xl:block text-center">მომხმარებლის სახელი:</span>
             <span class="px-5 text-center w-full">{{getUsername(post.userId)}}</span>
-            <a
-                class="rounded-md bg-purple text-white py-2 px-3 hover:bg-purple-hover transition-all cursor-pointer">დეტალურად</a>
+            <a class="rounded-md bg-purple text-white py-2 px-3 hover:bg-purple-hover transition-all cursor-pointer text-center"
+                (click)="getPostId(post.id)">დეტალურად</a>
         </li>
     </ul>
-    <button class="modal_opener" (click)="toggleModal()">
-        Click Me! I Don't Bite... <span role="img" aria-label="emoji">😛</span>
-    </button>
-
-    <app-post-details [show]="showModal" [customClass]="'custom_modal_class'"></app-post-details>
-
-        <!-- <button (click)="onLoadMore()">Load more</button> -->
-
+    <app-post-details [selectedPost]="selectedPost" [toggleModal]="onToggleModal" [show]="showModal"
+        *ngIf="showModal"></app-post-details>
 </div>

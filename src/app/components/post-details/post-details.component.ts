@@ -1,18 +1,15 @@
-import { NgClass, NgStyle } from '@angular/common';
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
+import { Post } from '../../types';
 
 @Component({
   selector: 'app-post-details',
   standalone: true,
-  imports: [NgClass,NgStyle],
+  imports: [CommonModule],
   templateUrl: './post-details.component.html',
 })
 export class PostDetailsComponent {
   @Input() show = false;
-  @Input() customClass = '';
-  @Input() closeCallback = () => false;
-
-  constructor() {}
-
-  ngOnInit() {}
+  @Input() toggleModal = () => false;
+  @Input() selectedPost!: Post;
 }

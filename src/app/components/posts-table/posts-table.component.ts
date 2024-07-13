@@ -1,29 +1,31 @@
-import { NgFor } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { Component, Input} from '@angular/core';
 import { Post, User } from '../../types';
-import { PostDetailsComponent } from "../post-details/post-details.component";
+import { PostDetailsComponent } from '../post-details/post-details.component';
 
 @Component({
   selector: 'app-posts-table',
   standalone: true,
-  imports: [NgFor, PostDetailsComponent],
+  imports: [CommonModule, PostDetailsComponent],
   templateUrl: './posts-table.component.html',
 })
 export class PostsTableComponent {
   @Input() users: User[] = [];
   @Input() posts: Post[] = [];
-  // @Output() loadMore = new EventEmitter<void>();
+  selectedPost!: Post;
   showModal = false;
 
-  toggleModal = () => {
+  onToggleModal = (): any => {
     this.showModal = !this.showModal;
   };
+
+  getPostId(postId: number) {
+    this.selectedPost = this.posts.find((post) => post.id === postId)!;
+    this.onToggleModal();
+  }
+
   getUsername(userId: number): string {
     const user = this.users.find((user) => user.id === userId);
     return user ? user.name : 'Unknown User';
   }
-
-  // onLoadMore() {
-  //   this.loadMore.emit();
-  // }
 }
