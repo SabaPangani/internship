@@ -10,6 +10,6 @@ export const routes: Routes = [
   { path: 'posts', component: PostsComponent },
   { path: 'posts/:id', component: UserPostsComponent },
   { path: 'todos/:id', component: TodoListComponent },
-  { path: '**', component: PageNotfoundComponent },
   { path: '', redirectTo: 'users', pathMatch: 'full' },
+  { path: '**', component: PageNotfoundComponent },
 ];
